@@ -2,7 +2,7 @@
   "name": "presentation-more-than-code",
   "version": "0.0.0",
   "dependencies": {
-    "prism": "gh-pages",
+    "prism": "~1.0.1",
     "bespoke.js": "~1.0.0",
     "bespoke-backdrop": "~1.0.0",
     "bespoke-bullets": "~1.0.0",
@@ -13,5 +13,13 @@
     "bespoke-touch": "~1.0.0",
     "bespoke-state": "~1.0.0",
     "bespoke-classes": "~1.0.0"
+  },
+  "overrides": {
+    "prism": {
+      "main": [
+        "prism.js",
+        "themes/prism-okaidia.css"
+      ]
+    }
   }
 }
