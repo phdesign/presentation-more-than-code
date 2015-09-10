@@ -47,6 +47,9 @@ article.bespoke-parent {
   background-position: center;
   background-repeat: no-repeat;
 }
+.bespoke-slide.dilbert-estimation {
+  background-image: url('../images/dilbert-estimation.png');
+}
 .bespoke-inactive {
   opacity: 0;
   pointer-events: none;
@@ -121,6 +124,9 @@ article.bespoke-parent {
 }
 .bespoke-backdrop.balance {
   background-image: url('../images/balance.jpg');
+}
+.bespoke-backdrop.estimation {
+  background-image: url('../images/estimation.jpg');
 }
 .bespoke-backdrop-inactive {
   opacity: 0;
