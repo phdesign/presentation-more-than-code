@@ -15,7 +15,17 @@
     <body>
         <article>
             <section>
-                <h1>A great developer knows more than &lt;code/&gt;</h1>
+                <h1 class="code-light">
+                    A great developer knows more than 
+                    <span class="token punctuation">&lt;</span
+                    ><span class="token tag">code</span
+                    ><span class="token punctuation">/&gt;</span>
+                </h1>
+            </section>
+            <section>
+                <p>Paul Heasley</p>
+                <p>@pheasley</p>
+                <p>http://phdesign.com.au</p>
             </section>
             <section>
                 <h2>It's a competitive industry</h2>
@@ -45,7 +55,7 @@
             <section data-bespoke-state="dark" data-bespoke-backdrop="choices fade cover">
                 <h2>Choose your roles strategically</h2>
             </section>
-            <section>
+            <section data-bespoke-state="dark" data-bespoke-backdrop="empathy fade-30 cover">
                 <h2>Learn user empathy</h2>
             </section>
             <section>
@@ -54,6 +64,14 @@
                 <h3 class="bullet">Talk to product owners</h3>
                 <h3 class="bullet">Do first line support</h3>
                 <h3 class="bullet">Perform user research</h3>
+            </section>
+            <section>
+                <h2>You built</h2>
+                <img src="images/taj-mahal.jpg" alt="The Taj Mahal">
+            </section>
+            <section>
+                <h2>They wanted</h2>
+                <img src="images/scooter.jpg" alt="A scooter">
             </section>
             <section data-bespoke-state="dark" data-bespoke-backdrop="estimation fade cover">
                 <h2>Estimation is a big part of development</h2>
@@ -83,26 +101,39 @@
                 <h2>It's about balance</h2>
             </section>
             <section>
+                <h3>Conciseness</h3>
                 <pre class="language-javascript"><code>
-foreach(var p in ary) {
-  if (blah) {
-    doSomething();
-    var this = that;
-  } 
+if (!el.offsetWidth || !el.offsetHeight) {
+    ...
 } </code></pre>
-                <h3>vs.</h3>
+                <h3>vs.<br/>readability</h3>
                 <pre class="language-javascript"><code>
-foreach(var p in ary) {
-  if (blah) {
-    doSomething();
-    var this = that;
-  } 
+function isVisible(el) {
+    return el.offsetWidth && el.offsetHeight;
+}
+ 
+if (!isVisible(el)) {
+    ...
 } </code></pre>
             </section>
-            <section>
+            <section data-bespoke-state="dark" data-bespoke-backdrop="time-money fade cover">
                 <h2>Quality</h2>
                 <h3>vs.</h3> 
                 <h2>Time to market</h2>
+            </section>
+            <section>
+                <h2>Don't over-engineer it</h2>
+            </section>
+            <section>
+                <span class="bullet">
+                    <h3>Single responsiblity principle</h3>
+                    <p>a class should have only a single responsibility</p>
+                </span>
+                <br/>
+                <span class="bullet">
+                    <h3>Make it extensible</h3>
+                    <p>software should be open for extension, but closed for modification</p>
+                </span>
             </section>
         </article>
 

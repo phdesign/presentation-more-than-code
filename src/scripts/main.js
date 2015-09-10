@@ -51,9 +51,9 @@ var deck = bespoke.from('article', [
         return false;
     });
 
-    document.addEventListener('contextmenu', function (e) { 
-        deck.prev();
-        return false;
-    });
+    //document.addEventListener('contextmenu', function (e) { 
+        //deck.prev();
+        //return false;
+    //});
 
 }());
