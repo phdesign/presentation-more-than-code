@@ -1,54 +1,88 @@
-// Bespoke.js
-var deck = bespoke.from('article', [
-    bespoke.plugins.classes(),
-    bespoke.plugins.bullets('li, .bullet'),
-    bespoke.plugins.backdrop(),
-    bespoke.plugins.scale(),
-    bespoke.plugins.hash(),
-    bespoke.plugins.progress(),
-    bespoke.plugins.state(),
-    //bespoke.plugins.keys(),
-    bespoke.plugins.touch(),
-    bespoke.plugins.jumpy()
-]);
+bespoke.plugins.logikeys = function(options) {
+  return function(deck) {
 
-(function bespokeRemot() {
+    var isHorizontal = options !== 'vertical',
+      lastKey = [],
+      keyDelay,
+
+      getDigit = function(which) {
+        var result = which;
+        while (result > 0x9) {
+          result -= 0x30;
+        }
+        return result;
+      },
+
+      isDigitKey = function(which) {
+        var result = (which >= 0x30 && which <= 0x39) || (which >= 0x60 && which <= 0x69);
+        return result;
+      },
+
+      first = function() {
+        return deck.slide(0);
+      },
+
+      last = function() {
+        var lastIndex = Math.max(0, deck.slides.length - 1);
+        return deck.slide(lastIndex);
+      };
 
     document.addEventListener('keyup', function(e) {
-        if (e.which == 34 ||    // PAGE DOWN, logitech:NEXT
-            e.which == 39 ||    // RIGHT, remot.io:SWIPERIGHT
-            e.which == 32)      // SPACE
-            deck.next();
-        if (e.which == 33 ||    // PAGE UP, logitech:PREV
-            e.which == 37)      // LEFT, remot.io:SWIPELEFT
-            deck.prev();
-        if (e.which == 116 ||   // F5, logitech:PLAY
-            e.which == 38)      // remot.io:SWIPEUP
-            deck.first();
-        if (e.which == 190 ||   // PERIOD, logitech:PAUSE
-            e.which == 40)      // remot.io:SWIPEDOWN
-            deck.last();
+      if (e.which == 34 ||                  // PAGE DOWN
+        (e.which == 32 && !e.shiftKey) ||   // SPACE WITHOUT SHIFT
+        (isHorizontal && e.which == 39) ||  // RIGHT
+        (!isHorizontal && e.which == 40))   // DOWN
+        { deck.next(); } 
+      
+      if (e.which == 33 ||                  // PAGE UP
+        (e.which == 32 && e.shiftKey) ||    // SPACE + SHIFT
+        (isHorizontal && e.which == 37) ||  // LEFT
+        (!isHorizontal && e.which == 38))   // UP
+        { deck.prev(); }
+
+      if (e.which == 116 ||                 // F5
+        (isHorizontal && e.which == 38))    // UP
+        { first(); }
+
+      if (e.which == 190 ||                   // PERIOD
+        (isHorizontal && e.which == 40))     // DOWN
+        { last(); }
+
     });
 
-}());
+  }
+};
+
+// Bespoke.js
+bespoke.from('article', [
+  bespoke.plugins.classes(),
+  bespoke.plugins.bullets('li, .bullet'),
+  bespoke.plugins.backdrop(),
+  bespoke.plugins.scale(),
+  bespoke.plugins.hash(),
+  bespoke.plugins.progress(),
+  bespoke.plugins.state(),
+  bespoke.plugins.logikeys(),
+  bespoke.plugins.touch()
+]);
 
 (function preloadBackgroundImages() {
 
-    var matches, image,
-    forEach = function(arrayLike, fn) {
-        arrayLike || [].slice.call(arrayLike, 0).forEach(fn);
-    };
+  var matches, image,
+  forEach = function(arrayLike, fn) {
+    arrayLike || [].slice.call(arrayLike, 0).forEach(fn);
+  };
 
-    forEach(document.styleSheets, function(sheet) {
-        forEach(sheet.rules, function(rule) {
-            if (rule.style && rule.style.backgroundImage) {
-                matches = rule.style.backgroundImage.match(/url\((.*)\)/);
-                if (matches) {
-                    image = new Image();
-                    image.src = matches[1];
-                }
-            }
-        });
+  forEach(document.styleSheets, function(sheet) {
+    forEach(sheet.rules, function(rule) {
+      if (rule.style && rule.style.backgroundImage) {
+        matches = rule.style.backgroundImage.match(/url\((.*)\)/);
+        if (matches) {
+          image = new Image();
+          image.src = matches[1];
+        }
+      }
     });
+  });
 
 }());
