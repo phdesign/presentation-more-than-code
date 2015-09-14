@@ -12,6 +12,26 @@ var deck = bespoke.from('article', [
     bespoke.plugins.jumpy()
 ]);
 
+(function bespokeRemot() {
+
+    document.addEventListener('keyup', function(e) {
+        if (e.which == 34 ||    // PAGE DOWN, logitech:NEXT
+            e.which == 39 ||    // RIGHT, remot.io:SWIPERIGHT
+            e.which == 32)      // SPACE
+            deck.next();
+        if (e.which == 33 ||    // PAGE UP, logitech:PREV
+            e.which == 37)      // LEFT, remot.io:SWIPELEFT
+            deck.prev();
+        if (e.which == 116 ||   // F5, logitech:PLAY
+            e.which == 38)      // remot.io:SWIPEUP
+            deck.first();
+        if (e.which == 190 ||   // PERIOD, logitech:PAUSE
+            e.which == 40)      // remot.io:SWIPEDOWN
+            deck.last();
+    });
+
+}());
+
 (function preloadBackgroundImages() {
 
     var matches, image,
@@ -30,30 +50,5 @@ var deck = bespoke.from('article', [
             }
         });
     });
-
-}());
-
-(function bespokeRemot() {
-
-    document.addEventListener('keyup', function(e) {
-        if (e.which == 39) // SWIPERIGHT
-            deck.next();
-        if (e.which == 37) // SWIPELEFT
-            deck.prev();
-        if (e.which == 38) // SWIPEUP
-            deck.first();
-        if (e.which == 40) // SWIPEDOWN
-            deck.last();
-    });
-
-    document.addEventListener('click', function(e) {
-        deck.next();
-        return false;
-    });
-
-    //document.addEventListener('contextmenu', function (e) { 
-        //deck.prev();
-        //return false;
-    //});
 
 }());
