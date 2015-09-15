@@ -172,6 +172,9 @@ article {
   &.tired {
     background-image: url('../images/tired.gif');
   }
+  &.bored {
+    background-image: url('../images/bored.gif');
+  }
 }
 .bespoke-backdrop-inactive {
   opacity: 0;
@@ -190,6 +193,75 @@ pre {
   span {
     text-shadow: none !important;
   }
+}
+
+// wizard steps (used for red / green refactor) styles
+
+.wizard-steps {
+    margin:20px 10px 0px 25px;
+    padding:0px;
+    position: relative;
+    clear:both;
+    font-family: open sans, helvetica, arial, sans-serif;
+    font-weight: 600;
+    zoom: reset;
+}
+.wizard-steps div {
+    position: relative;
+    display: block;
+    width: auto;
+    height: 60px;
+    margin-right: 40px;
+    padding: 0px 20px 0px 20px;
+    float: left;
+    font-size: 30px;
+    line-height: 60px;
+    color: #fff;
+    background: blue;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px rgba(0,0,0, 0.8);
+}
+.wizard-steps div:before {
+    width: 0px;
+    height: 0px;
+    border-top: 30px solid blue;
+    border-bottom: 30px solid blue;
+    border-left: 30px solid transparent;
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -30px;
+}
+.wizard-steps div:after {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid blue;
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -30px;
+}
+.wizard-steps .step-red {
+    background: red;
+}
+.wizard-steps .step-red:before {
+    border-top-color: red;
+    border-bottom-color: red;
+}
+.wizard-steps .step-red:after {
+    border-left-color: red;
+}
+.wizard-steps .step-green {
+    background: green;
+}
+.wizard-steps .step-green:before {
+    border-top-color: green;
+    border-bottom-color: green;
+}
+.wizard-steps .step-green:after {
+    border-left-color: green;
 }
 
 // content styles
@@ -282,72 +354,15 @@ a {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.footnote {
+  position: fixed;
+  bottom: 50px;
+  margin: 0;
 
-// wizard steps (used for red / green refactor) styles
-
-.wizard-steps {
-    margin:20px 10px 0px 25px;
-    padding:0px;
-    position: relative;
-    clear:both;
-    font-family: open sans, helvetica, arial, sans-serif;
-    font-weight: 500;
-    zoom: reset;
-}
-.wizard-steps div {
-    position: relative;
-    display: block;
-    width: auto;
-    height: 60px;
-    margin-right: 40px;
-    padding: 0px 20px 0px 20px;
-    float: left;
-    font-size: 30px;
-    line-height: 60px;
-    color: #fff;
-    background: blue;
-    text-decoration: none;
-    text-shadow: 1px 1px 1px rgba(0,0,0, 0.8);
-}
-.wizard-steps div:before {
-    width: 0px;
-    height: 0px;
-    border-top: 30px solid blue;
-    border-bottom: 30px solid blue;
-    border-left: 30px solid transparent;
-    position: absolute;
-    content: "";
-    top: 0px;
-    left: -30px;
-}
-.wizard-steps div:after {
-    width: 0;
-    height: 0;
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent;
-    border-left: 30px solid blue;
-    position: absolute;
-    content: "";
-    top: 0px;
-    right: -30px;
-}
-.wizard-steps .step-red {
-    background: red;
-}
-.wizard-steps .step-red:before {
-    border-top-color: red;
-    border-bottom-color: red;
-}
-.wizard-steps .step-red:after {
-    border-left-color: red;
-}
-.wizard-steps .step-green {
-    background: green;
-}
-.wizard-steps .step-green:before {
-    border-top-color: green;
-    border-bottom-color: green;
-}
-.wizard-steps .step-green:after {
-    border-left-color: green;
+  &.left {
+    left: 50px;
+  }
+  &.right {
+    right: 50px;
+  }
 }

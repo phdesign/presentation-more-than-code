@@ -30,10 +30,10 @@ bespoke.plugins.logikeys = function(options) {
       
       waitForNextDigit = function(digit) {
         digits.push(digit);
-        keyDelay = setTimeout(processDigits, KEY_DELAY_MS);
+        keyDelay = setTimeout(jumpToSlide, KEY_DELAY_MS);
       },
       
-      processDigits = function() {
+      jumpToSlide = function() {
         var index = parseInt(digits.join(""));  
         digits = [];
         if (Number.isNaN(index))
@@ -42,12 +42,14 @@ bespoke.plugins.logikeys = function(options) {
         return deck.slide(index - 1);
       };
 
+    // Use the keyup event to support remot.io
     document.addEventListener('keyup', function(e) {
       clearTimeout(keyDelay);
+
       if (isDigitKey(e.which)) {
         waitForNextDigit(getDigit(e.which));
-      } else {
-        processDigits();
+      } else if (digits.length > 0) {
+        jumpToSlide();
       }
 
       if (e.which == 34 ||                  // PAGE DOWN
@@ -62,6 +64,7 @@ bespoke.plugins.logikeys = function(options) {
         (!isHorizontal && e.which == 38))   // UP
         { deck.prev(); }
 
+      // F5 & PERIOD are the present / hide buttons on a Logitech Presenter
       if (e.which == 116 ||                 // F5
         (isHorizontal && e.which == 38))    // UP
         { first(); }
