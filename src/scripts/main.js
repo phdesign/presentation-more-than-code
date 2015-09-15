@@ -2,8 +2,9 @@ bespoke.plugins.logikeys = function(options) {
   return function(deck) {
 
     var isHorizontal = options !== 'vertical',
-      lastKey = [],
+      digits = [],
       keyDelay,
+      KEY_DELAY_MS = 300,
 
       getDigit = function(which) {
         var result = which;
@@ -25,9 +26,30 @@ bespoke.plugins.logikeys = function(options) {
       last = function() {
         var lastIndex = Math.max(0, deck.slides.length - 1);
         return deck.slide(lastIndex);
+      }
+      
+      waitForNextDigit = function(digit) {
+        digits.push(digit);
+        keyDelay = setTimeout(processDigits, KEY_DELAY_MS);
+      },
+      
+      processDigits = function() {
+        var index = parseInt(digits.join(""));  
+        digits = [];
+        if (Number.isNaN(index))
+          return;
+        index = Math.min(Math.max(1, index), deck.slides.length);
+        return deck.slide(index - 1);
       };
 
     document.addEventListener('keyup', function(e) {
+      clearTimeout(keyDelay);
+      if (isDigitKey(e.which)) {
+        waitForNextDigit(getDigit(e.which));
+      } else {
+        processDigits();
+      }
+
       if (e.which == 34 ||                  // PAGE DOWN
         (e.which == 32 && !e.shiftKey) ||   // SPACE WITHOUT SHIFT
         (isHorizontal && e.which == 39) ||  // RIGHT
@@ -44,10 +66,9 @@ bespoke.plugins.logikeys = function(options) {
         (isHorizontal && e.which == 38))    // UP
         { first(); }
 
-      if (e.which == 190 ||                   // PERIOD
-        (isHorizontal && e.which == 40))     // DOWN
+      if (e.which == 190 ||                 // PERIOD
+        (isHorizontal && e.which == 40))    // DOWN
         { last(); }
-
     });
 
   }
