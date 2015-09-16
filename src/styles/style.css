@@ -120,6 +120,12 @@ article.bespoke-parent {
 .bespoke-backdrop.cover {
   background-size: cover;
 }
+.bespoke-backdrop.unsure {
+  background-image: url('../images/unsure.gif');
+}
+.bespoke-backdrop.im-nice {
+  background-image: url('../images/im-nice.gif');
+}
 .bespoke-backdrop.skill-tree {
   background-image: url('../images/diablo-skill-tree.jpg');
 }
@@ -131,6 +137,18 @@ article.bespoke-parent {
 }
 .bespoke-backdrop.choices {
   background-image: url('../images/choices.jpg');
+}
+.bespoke-backdrop.suits-yay {
+  background-image: url('../images/suits-yay.gif');
+}
+.bespoke-backdrop.blueprint {
+  background-image: url('../images/blueprint.jpg');
+}
+.bespoke-backdrop.nowheels {
+  background-image: url('../images/nowheels.gif');
+}
+.bespoke-backdrop.tdd {
+  background-image: url('../images/tdd.gif');
 }
 .bespoke-backdrop.balance {
   background-image: url('../images/balance.jpg');
@@ -149,12 +167,6 @@ article.bespoke-parent {
 }
 .bespoke-backdrop.crossroads {
   background-image: url('../images/crossroads.jpg');
-}
-.bespoke-backdrop.blueprint {
-  background-image: url('../images/blueprint.jpg');
-}
-.bespoke-backdrop.nowheels {
-  background-image: url('../images/nowheels.gif');
 }
 .bespoke-backdrop.wireframe {
   background-image: url('../images/wireframe.jpg');
