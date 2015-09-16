@@ -65,7 +65,12 @@ article.bespoke-parent {
   background-color: #222;
   color: #fff;
 }
-.dark h2 {
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark p,
+.dark li {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
 .bespoke-bullet {
@@ -111,10 +116,10 @@ article.bespoke-parent {
 .bespoke-backdrop.fade.bespoke-backdrop-active {
   opacity: 0.4;
 }
-.bespoke-backdrop.fade-30.bespoke-backdrop-active {
+.bespoke-backdrop.fade-light.bespoke-backdrop-active {
   opacity: 0.7;
 }
-.bespoke-backdrop.fade-80.bespoke-backdrop-active {
+.bespoke-backdrop.fade-dark.bespoke-backdrop-active {
   opacity: 0.2;
 }
 .bespoke-backdrop.cover {
@@ -125,6 +130,9 @@ article.bespoke-parent {
 }
 .bespoke-backdrop.im-nice {
   background-image: url('../images/im-nice.gif');
+}
+.bespoke-backdrop.crossroads {
+  background-image: url('../images/crossroads.jpg');
 }
 .bespoke-backdrop.skill-tree {
   background-image: url('../images/diablo-skill-tree.jpg');
@@ -150,26 +158,14 @@ article.bespoke-parent {
 .bespoke-backdrop.tdd {
   background-image: url('../images/tdd.gif');
 }
-.bespoke-backdrop.balance {
-  background-image: url('../images/balance.jpg');
-}
 .bespoke-backdrop.estimation {
   background-image: url('../images/estimation.jpg');
 }
 .bespoke-backdrop.empathy {
   background-image: url('../images/empathy.jpg');
 }
-.bespoke-backdrop.time-money {
-  background-image: url('../images/time-money.jpg');
-}
 .bespoke-backdrop.leadership {
   background-image: url('../images/leadership.gif');
-}
-.bespoke-backdrop.crossroads {
-  background-image: url('../images/crossroads.jpg');
-}
-.bespoke-backdrop.wireframe {
-  background-image: url('../images/wireframe.jpg');
 }
 .bespoke-backdrop.tired {
   background-image: url('../images/tired.gif');
@@ -191,72 +187,6 @@ pre {
 }
 pre span {
   text-shadow: none !important;
-}
-.wizard-steps {
-  margin: 20px 10px 0px 25px;
-  padding: 0px;
-  position: relative;
-  clear: both;
-  font-family: open sans, helvetica, arial, sans-serif;
-  font-weight: 600;
-  zoom: reset;
-}
-.wizard-steps div {
-  position: relative;
-  display: block;
-  width: auto;
-  height: 60px;
-  margin-right: 40px;
-  padding: 0px 20px 0px 20px;
-  float: left;
-  font-size: 30px;
-  line-height: 60px;
-  color: #fff;
-  background: blue;
-  text-decoration: none;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
-}
-.wizard-steps div:before {
-  width: 0px;
-  height: 0px;
-  border-top: 30px solid blue;
-  border-bottom: 30px solid blue;
-  border-left: 30px solid transparent;
-  position: absolute;
-  content: "";
-  top: 0px;
-  left: -30px;
-}
-.wizard-steps div:after {
-  width: 0;
-  height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-left: 30px solid blue;
-  position: absolute;
-  content: "";
-  top: 0px;
-  right: -30px;
-}
-.wizard-steps .step-red {
-  background: red;
-}
-.wizard-steps .step-red:before {
-  border-top-color: red;
-  border-bottom-color: red;
-}
-.wizard-steps .step-red:after {
-  border-left-color: red;
-}
-.wizard-steps .step-green {
-  background: green;
-}
-.wizard-steps .step-green:before {
-  border-top-color: green;
-  border-bottom-color: green;
-}
-.wizard-steps .step-green:after {
-  border-left-color: green;
 }
 body {
   background: #f0f0f0;
@@ -314,6 +244,10 @@ a {
 }
 .big-gap {
   margin-bottom: 36px;
+}
+.move-up {
+  height: 50px;
+  display: inline-block;
 }
 .code-light .token.punctuation {
   color: #999;
