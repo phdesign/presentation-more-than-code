@@ -330,12 +330,16 @@ a {
 }
 .footnote {
   position: fixed;
-  bottom: 50px;
+  bottom: 30px;
   margin: 0;
+  font-size: 14px;
 }
 .footnote.left {
   left: 50px;
 }
 .footnote.right {
   right: 50px;
+}
+.footnote .fa {
+  margin-right: 5px;
 }
