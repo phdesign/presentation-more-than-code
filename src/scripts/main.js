@@ -77,12 +77,15 @@ bespoke.plugins.logikeys = function(options) {
   }
 };
 
+var isIE = /(MSIE |Trident.*rv[ :])([0-9]+)/.test(navigator.userAgent);
+console.log('is IE?', isIE);
+
 // Bespoke.js
 bespoke.from('article', [
   bespoke.plugins.classes(),
   bespoke.plugins.bullets('li, .bullet'),
   bespoke.plugins.backdrop(),
-  bespoke.plugins.scale(),
+  bespoke.plugins.scale(isIE ? 'transform' : undefined),
   bespoke.plugins.hash(),
   bespoke.plugins.progress(),
   bespoke.plugins.state(),
