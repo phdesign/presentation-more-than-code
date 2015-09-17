@@ -73,6 +73,12 @@ article.bespoke-parent {
 .dark li {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
+.black {
+  background-color: #000;
+}
+.white {
+  background-color: #fff;
+}
 .bespoke-bullet {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -152,8 +158,19 @@ article.bespoke-parent {
 .bespoke-backdrop.nowheels {
   background-image: url('../images/nowheels.gif');
 }
+.bespoke-backdrop.dev-coffee {
+  background-image: url('../images/dev-coffee.jpg');
+}
 .bespoke-backdrop.tdd {
   background-image: url('../images/tdd.gif');
+  margin: 50px 0;
+}
+.bespoke-backdrop.boxing {
+  background-image: url('../images/boxing.gif');
+}
+.bespoke-backdrop.conference {
+  background-image: url('../images/conference.jpg');
+  background-position: 0 -350px;
 }
 .bespoke-backdrop.estimation {
   background-image: url('../images/estimation.jpg');
@@ -161,14 +178,11 @@ article.bespoke-parent {
 .bespoke-backdrop.empathy {
   background-image: url('../images/empathy.jpg');
 }
-.bespoke-backdrop.leadership {
-  background-image: url('../images/leadership.gif');
+.bespoke-backdrop.obama {
+  background-image: url('../images/obama.gif');
 }
 .bespoke-backdrop.tired {
   background-image: url('../images/tired.gif');
-}
-.bespoke-backdrop.bored {
-  background-image: url('../images/bored.gif');
 }
 .bespoke-backdrop-inactive {
   opacity: 0;
@@ -186,7 +200,7 @@ article.bespoke-parent {
   bottom: 0;
 }
 pre {
-  font-size: 18px;
+  font-size: 24px;
   border-radius: 12px;
   border: none !important;
   box-shadow: none !important;
@@ -198,25 +212,25 @@ body {
   background: #f0f0f0;
   font-family: open sans, helvetica, arial, sans-serif;
   font-weight: 300;
-  font-size: 30px;
+  font-size: 40px;
   color: #333;
 }
 h1 {
-  font-size: 84px;
+  font-size: 112px;
   font-weight: 600;
   letter-spacing: -2px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 h2 {
   font-weight: 300;
-  font-size: 63px;
+  font-size: 84px;
   letter-spacing: -1px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 h3 {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 300;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 hr {
   visibility: hidden;
@@ -226,11 +240,11 @@ ul {
   list-style: none;
 }
 li {
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 p {
-  margin: 0 100px 18px;
-  line-height: 33px;
+  margin: 0 100px 24px;
+  line-height: 44px;
 }
 blockquote {
   max-width: 75%;
@@ -246,14 +260,10 @@ a {
   text-decoration: line-through;
 }
 .small-gap {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 .big-gap {
-  margin-bottom: 54px;
-}
-.move-up {
-  height: 50px;
-  display: inline-block;
+  margin-bottom: 72px;
 }
 .code-light .token.punctuation {
   color: #999;
@@ -264,15 +274,15 @@ a {
 .me {
   background-image: url("../images/me.jpg");
   background-size: 100%;
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   border-radius: 160px;
-  margin: 15px 0;
+  margin: 20px 0;
   opacity: 0.95;
 }
 .pageup-logo {
-  width: 150px;
-  height: 56px;
+  width: 202px;
+  height: 75px;
   margin-top: 50px;
 }
 .book-cover {
@@ -282,9 +292,9 @@ a {
 }
 .footnote {
   position: absolute;
-  bottom: 30px;
+  bottom: 80px;
   margin: 0;
-  font-size: 21px;
+  font-size: 28px;
 }
 .footnote.left {
   left: 50px;
@@ -293,5 +303,5 @@ a {
   right: 50px;
 }
 .footnote .fa {
-  margin-right: 7.5px;
+  margin-right: 10px;
 }
